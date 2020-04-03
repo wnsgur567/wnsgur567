@@ -86,9 +86,7 @@ extern HWND hWnd;
 extern Board* board;
 extern int mouseX;
 extern int mouseY;
-#define WHITE 1
-#define BLACK -1
-#define NONE 0
+
 
 void Render() {
 	HBITMAP MyBitmap, OldBitmap;

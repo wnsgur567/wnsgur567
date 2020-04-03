@@ -110,7 +110,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 	case WM_LBUTTONDOWN:
 
-		board->putOn(mouseX, mouseY);
+		if (board->putOn(mouseX, mouseY) == BLACK)
+			MessageBox(hWnd, L"black", L"cow", MB_OK);
+		if (board->putOn(mouseX, mouseY) == WHITE)
+			MessageBox(hWnd, L"white", L"noise", MB_OK);
 
 		InvalidateRect(hWnd, NULL, false);
 		return 0;
@@ -124,6 +127,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		return 0;
 
 	case WM_DESTROY:
+		delete board;
 		PostQuitMessage(0);
 		return 0;
 	}

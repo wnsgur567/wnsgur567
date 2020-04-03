@@ -1,5 +1,8 @@
 #pragma once
 
+#define WHITE 1
+#define BLACK -1
+#define NONE 0
 #define BLANK 30
 #define RADIUS 23
 
